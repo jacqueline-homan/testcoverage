@@ -32,3 +32,6 @@ Additionally, if you're _not_ a developer and you have a feature you'd really li
 [irc]: http://webchat.freenode.net/?channels=#hacketyhack
 [issues]: https://github.com/hacketyhack/hackety-hack.com/issues
 [tdd]:    http://en.wikipedia.org/wiki/Test-driven_development
+
+It is advisable to run 'script/bootstrap' in the terminal
+every single time after adding a new file, adding a line of code to an existing file, or doing a 'bundle install' after adding gems to make the app omniauthable or other useful gems to your Gemfile. Otherwise, you will get weird error, Name Error :: 'undefined local variable or method' errors when you run rspec. (~JSH, Team Hackety-Hack)

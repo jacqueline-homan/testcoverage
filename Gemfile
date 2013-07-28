@@ -10,12 +10,20 @@ gem 'json'
 
 gem 'hackety_hack-lessons', '~> 1.1', :require => 'hackety_hack/lessons'
 
+# Authentication gems for making features "omniauthable"
+gem 'omniauth'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'fb_graph'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mongo_mapper'
 gem 'bson_ext'
 gem 'prawn'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
