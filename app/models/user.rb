@@ -2,7 +2,7 @@ class User
   include MongoMapper::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
   key :username, String
@@ -10,6 +10,9 @@ class User
   key :about, String
   key :moderator, Boolean
   key :blog_poster, Boolean
+
+  key :provider, String
+  key :uid, String
 
   ## Database authenticatable
   key :email,              :type => String, :null => false
