@@ -18,6 +18,7 @@ gem 'twitter'
 gem 'fb_graph'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'omniauth-yahoo'
 
 gem 'haml-rails'
 gem 'jquery-rails'

@@ -1,7 +1,7 @@
 HacketyHackCom::Application.routes.draw do
-  match '/auth/:provider/callback' => 'authentications#create'
+  #match '/auth/:provider/callback' => 'authentications#create'
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  #devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
   resources :lessons, :only => [:index, :show]
 
@@ -34,10 +34,14 @@ HacketyHackCom::Application.routes.draw do
 
   resources :programs, :only => [:index, :show]
 
+  # TODO: Find out what happens in devise/sessions#new and devise/sessions#destroy
+  # match'users/auth/:provider' to: 'omniauth_callbacks'
+  
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   devise_for :users
   devise_scope :user do
-    get "login" => "devise/sessions#new", :as => "login"
-    get "logout" => "devise/sessions#destroy", :as => "logout"
+  get "login" => "devise/sessions#new", :as => "login"
+  get "logout" => "devise/sessions#destroy", :as => "logout"
   end
 
   resources :users, :constraints => { :id => /.*/ }, :only => :show do
