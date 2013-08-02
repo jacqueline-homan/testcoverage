@@ -1,6 +1,6 @@
 HacketyHackCom::Application.routes.draw do
   #match '/auth/:provider/callback' => 'authentications#create'
-
+  # the statement on the next line was moved below to line 40.
   #devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
   resources :lessons, :only => [:index, :show]
