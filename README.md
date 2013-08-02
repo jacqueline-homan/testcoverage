@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # hackety-hack.com #
 
 [![Build status](https://secure.travis-ci.org/hacketyhack/hackety-hack.com.png)](http://travis-ci.org/#!/hacketyhack/hackety-hack.com)
@@ -32,5 +33,14 @@ Additionally, if you're _not_ a developer and you have a feature you'd really li
 [irc]: http://webchat.freenode.net/?channels=#hacketyhack
 [issues]: https://github.com/hacketyhack/hackety-hack.com/issues
 [tdd]:    http://en.wikipedia.org/wiki/Test-driven_development
+<<<<<<< HEAD
 
 It is advisable to install Rails using chruby or rbenv instead of rmv. Otherwise, you may get weird error, Name Error :: 'undefined local variable or method' errors when you run rspec. (~JSH, Team Hackety-Hack)
+=======
+=======
+testcoverage
+============
+
+After recloning the Hackety-Hack from its original repo (the repo belonging to the project's maintainer, Steve Klabnik), I did a git branch and added the simplecov gem and ran initial rspec and cucumber tests.
+>>>>>>> e1157eb7be130c5f69675f3a122c518c6caf36ac
+>>>>>>> master
