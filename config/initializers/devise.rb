@@ -22,7 +22,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [ :username, :provider ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -181,11 +181,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :github, ENV['HH_GITHUB_KEY'], ENV['HH_GITHUB_SECRET'],:scope => 'user,public_repo'
-  config.omniauth :twitter, ENV['HH_TWITTER_KEY'], ENV['HH_TWITTER_SECRET']   
-  config.omniauth :facebook, ENV['HH_FB_KEY'], ENV['HH_FB_SECRET']
-  config.omniauth :linkedin, ENV['HH_LI_KEY'], ENV['HH_LI_SECRET'] 
+  config.omniauth :twitter, ENV['HH_TWITTER_KEY'], ENV['HH_TWITTER_SECRET'], :scope => 'user,public_repo'   
+  config.omniauth :facebook, ENV['HH_FB_KEY'], ENV['HH_FB_SECRET'], :scope => 'user,public_repo'
+  config.omniauth :linkedin, ENV['HH_LI_KEY'], ENV['HH_LI_SECRET'], :scope => 'user,public_repo'
 # config.omniauth :google, ENV['HH_GOOGLE_KEY'], ENV[HH_GOOGLE_SECRET], :scope => 'user', 'public_repo'
-  config.omniauth :yahoo, ENV['HH_YAHOO_KEY'], ENV['HH_YAHOO_SECRET'] 
+  config.omniauth :yahoo, ENV['HH_YAHOO_KEY'], ENV['HH_YAHOO_SECRET'], :scope => 'user,public_repo' 
 # config.omniauth :openid, ENV['HH_OPID_KEY'], ENV['HH_OPID_SECRET'], :scope => 'user, public_repo'
 # config.omniauth :myspace, ENV['HH_MS_KEY'], ENV['HH_MS_SECRET'], :scope => 'user, public_repo'
 # config.omniauth :basecamp, ENV['HH_BC_KEY'], ENV['HH_BC_SECRET'], :scope => 'user, public_repo'

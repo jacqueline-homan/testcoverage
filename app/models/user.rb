@@ -1,9 +1,10 @@
 class User
+  # has_many :authentications
   include MongoMapper::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :authentications, :recoverable, :rememberable, :trackable, :validatable
 
   key :username, String
   key :email, String
@@ -94,5 +95,26 @@ class User
 
     follow! steve
     steve.follow! self
+  end
+  def self.from_omniauth(auth)
+    user = User.find_or_initislize_by_provider_and_uid(auth[:provider], auth[:uid])
+    user.username = auth.info.nickname
+    user.save
+    user
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
+
+  def self.new_with_session(params,sessions)
+    if session["devise.user_attributes"]
+      new(sessoion["devise.user_attributes"]) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end
   end
 end
