@@ -3,8 +3,7 @@ class User
   include MongoMapper::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :omniauthable,
-         :authentications, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :omniauthable, :authentications,:recoverable, :rememberable, :trackable, :validatable
 
   key :username, String
   key :email, String
@@ -100,7 +99,7 @@ class User
     user = User.find_or_initislize_by_provider_and_uid(auth[:provider], auth[:uid])
     user.username = auth.info.nickname
     user.save
-    user
+    User
   end
 
   def password_required?
